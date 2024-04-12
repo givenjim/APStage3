@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Div On Scroll</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 700vh; /* Just to create scrollable area */
+  }
+  section.landing{
+    height: 800px;
+    background-color: blueviolet;
+  }
+  section.box-area{
+    padding: 100px;
+  }
+
+  .container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 100vh; */
+  }
+  .boxx{
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+  }
+  .box{
+    display: none;
+    animation: appear 1s ease forwards;
+  }
+  .row{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+  }
+  /* .box {
+    display: none;
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    border-radius: 10px;
+    text-align: center;
+    animation: appear 1s ease forwards;
+  } */
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: scale(0.5) translateY(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+  <section class="landing">
+
+  </section>
+<section class="box-area">
+  <div class="container">
+    <div class="box">
+      <div class="row">
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="row">
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="row">
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+        <div class=" boxx ">
+          <h2>Welcome</h2>
+          <p>This content is appearing from the center!</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="row ">
+      <div class=" boxx ">
+        <h2>Welcome</h2>
+        <p>This content is appearing from the center!</p>
+      </div>
+      <div class=" boxx ">
+        <h2>Welcome</h2>
+        <p>This content is appearing from the center!</p>
+      </div>
+      <div class=" boxx ">
+        <h2>Welcome</h2>
+        <p>This content is appearing from the center!</p>
+      </div>
+    </div>
+  </div>
+    <div class="row ">
+      <div class=" boxx ">
+        <h2>Welcome</h2>
+        <p>This content is appearing from the center!</p>
+      </div>
+      <div class=" boxx ">
+        <h2>Welcome</h2>
+        <p>This content is appearing from the center!</p>
+      </div>
+      <div class=" boxx ">
+        <h2>Welcome</h2>
+        <p>This content is appearing from the center!</p>
+      </div>
+    </div>
+  </div> -->
+</section>
+
+ 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const box = document.querySelector('.box');
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function handleScroll() {
+    if (isInViewport(box)) {
+      box.style.display = 'block';
+    } 
+    else {
+      box.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+});
+</script>
+
+</body>
+</html>
+
